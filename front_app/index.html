@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анализ фотографий</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Анализ фотографий гостинной/спальной</h1>
+            <p>Загрузите фотографию для анализа качества и композиции</p>
+        </header>
+
+        <main class="app-main">
+            <div class="upload-section">
+                <form id="uploadForm">
+                    <div class="file-input-container">
+                        <label class="file-input-label" for="fileInput">
+                            Выберите изображение
+                            <input type="file" id="fileInput" accept="image/*" class="file-input">
+                        </label>
+                        <div id="imagePreview" class="image-preview"></div>
+                    </div>
+                    <button type="submit" id="submitButton" class="submit-button" disabled>
+                        Анализировать
+                    </button>
+                </form>
+                <div id="errorMessage" class="error-message"></div>
+            </div>
+
+            <div id="resultsSection" class="results-section hidden">
+                <h2>Результаты анализа</h2>
+                <div class="results-grid"></div>
+                <div class="result-item">
+                    <h3>Эстетическая оценка (чем больше, чем лучше)</h3>
+                    <input type="text" id="estheticScore" readonly class="esthetic-score">
+                </div>
+                <div class="result-item">
+                    <h3>Эстетическая оценка на модели AVA (чем больше, чем лучше)</h3>
+                    <input type="text" id="estheticAVAScore" readonly class="esthetic-score">
+                </div>
+                <div class="results-grid"></div>
+                <div class="results-grid">
+                    <div class="result-item">
+                        <h3>Исходное изображение</h3>
+                        <img id="originalImage" alt="Исходное изображение" class="result-image">
+                    </div>
+
+                    <div class="result-item">
+                        <h3>Значимые зоны для оценки</h3>
+                        <img id="yoloImage" alt="YOLO разметка" class="result-image">
+                    </div>
+
+                    <div class="result-item">
+                        <h3>Горизонтальные линии</h3>
+                        <img id="horizontalLinesImage" alt="Горизонтальные линии" class="result-image">
+                    </div>
+
+                    <div class="result-item">
+                        <h3>Люди на фото</h3>
+                        <img id="personsImage" alt="Люди на фото" class="result-image">
+                    </div>
+
+                </div>
+
+                <div class=".grid-results">
+                    <h3>Технические параметры</h3>
+                    <div class="result-grid">
+                        <div class="result-grid-item">
+                            <span>Количество людей на фото:</span>
+                            <span id="personCount" class="result-good"></span>
+                        </div>
+                        <div class="result-grid-item">
+                            <span>НЕ размытое изображение:</span>
+                            <span id="blurResult" class="result-good"></span>
+                        </div>
+                        <div class="result-grid-item">
+                            <span>НЕ темное по GrayScale:</span>
+                            <span id="darkGrayResult" class="result-good"></span>
+                        </div>
+                        <div class="result-grid-item">
+                            <span>НЕ засвеченное по GrayScale:</span>
+                            <span id="brightGrayResult" class="result-good"></span>
+                        </div>
+                        <div class="result-grid-item">
+                            <span>НЕ темное по HSV:</span>
+                            <span id="darkHSVResult" class="result-good"></span>
+                        </div>
+                        <div class="result-grid-item">
+                            <span>НЕ засвеченное по HSV:</span>
+                            <span id="brightHSVResult" class="result-good"></span>
+                        </div>
+                        <div class="result-grid-item">
+                            <span>НЕ зашумленное:</span>
+                            <span id="noisedResult" class="result-good"></span>
+                        </div>
+                        <div class="result-grid-item">
+                            <span>Хороший горизонт:</span>
+                            <span id="horizonResult" class="result-good"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
