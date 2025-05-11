@@ -1,10 +1,10 @@
 from PIL import Image
 import numpy as np
-from eigen_cam.yolo_cam import show_cam_on_image
-from eigen_cam.yolo_cam import EigenCAM
+# from explain_models.yolo_cam import show_cam_on_image
+# from explain_models.yolo_cam import EigenCAM
 
-# from eigen_cam.yolo_cam.utils.image import show_cam_on_image
-# from eigen_cam.yolo_cam.eigen_cam import EigenCAM
+from explain_models.yolo_cam.utils.image import show_cam_on_image
+from explain_models.yolo_cam.eigen_cam import EigenCAM
 import io
 import base64
 
