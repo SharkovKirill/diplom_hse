@@ -68,7 +68,7 @@ class PhotoQualityAnalyzer:
         )
 
         if lines is None:
-            return False, 0
+            return (False, 0, temp_img)
 
         total_lines, total_horiizontal_lines, good_horizontal_lines = 0, 0, 0
         angles = []
@@ -84,7 +84,6 @@ class PhotoQualityAnalyzer:
                     good_horizontal_lines += 1
         avg_angle = np.mean(angles)
         if total_horiizontal_lines == 0:
-
             return (False, 0, temp_img)
         else:
             return (
