@@ -5,7 +5,7 @@ from pydantic import BaseModel
 import requests
 import json
 from server_utils import resize_image, make_classification, make_explain, decode_image
-from ava_aesthetic_predictor.make_prediction_dirt import make_prediction_pretrained_ava
+from ava_aesthetic_predictor.make_prediction import make_prediction_pretrained_ava
 from loguru import logger
 from PIL import Image
 import io
@@ -39,7 +39,7 @@ async def classify(
     image = Image.open(io.BytesIO(contents))
     resized_image = resize_image(image)
 
-    model = YOLO(r"D:\MY_PROJECTS\diplom_hse\runs\classify\train13\weights\best.pt")
+    model = YOLO("path_to_model")
     model.cpu()
 
     estetica_result = make_classification(model, resized_image)
